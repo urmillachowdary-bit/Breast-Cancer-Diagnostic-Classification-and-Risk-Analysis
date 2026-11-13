@@ -1,125 +1,294 @@
+
 # Breast Cancer Diagnostic Classification & Risk Analysis
 
-Interactive **healthcare analytics portfolio project** featuring a breast cancer diagnostic classification analysis and three additional healthcare dashboards. Built as a self-contained website using **HTML, CSS, JavaScript, and D3.js**.
+An interactive **machine learning and healthcare analytics portfolio project** focused on breast cancer diagnostic classification and risk analysis.
 
-## Interactive Dashboard
+The project explores differences between malignant and benign tumor characteristics, evaluates machine learning classification models, and visualizes diagnostic performance through an interactive dashboard.
 
-**[Open the Breast Cancer Dashboard](https://urmillachowdary-bit.github.io/Breast-Cancer-Diagnostic-Classification-and-Risk-Analysis/#breast-cancer)**
+**Technologies:** HTML, CSS, JavaScript, D3.js, Machine Learning, Data Visualization
 
-*The website link will work after GitHub Pages is enabled on this repository.*
+## Live Interactive Dashboard
 
-## Dashboard Previews
+[View Breast Cancer Diagnostic Dashboard](https://urmillachowdary-bit.github.io/Breast-Cancer-Diagnostic-Classification-and-Risk-Analysis/)
 
-### 1. Breast Cancer Diagnostic Classification & Risk Analysis
+*The dashboard is accessible after GitHub Pages has been enabled and successfully deployed.*
+
+---
+
+## Dashboard Preview
 
 ![Breast Cancer Diagnostic Classification Dashboard](breast-cancer.png)
 
-### 2. Hospital Readmission Risk & Healthcare Outcomes Analysis
+The interactive dashboard includes tumor feature analysis, machine learning model comparisons, ROC curves, confusion matrices, and classification threshold controls.
 
-![Hospital Readmission Risk Dashboard](readmission.png)
+---
 
-### 3. Healthcare Revenue Cycle & Claims Analysis
+## Project Overview
 
-![Healthcare Revenue Cycle and Claims Dashboard](claims.png)
+This project analyzes the **Wisconsin Diagnostic Breast Cancer (WDBC) dataset** to investigate differences between malignant and benign tumor measurements.
 
-### 4. Hospital Operations & Resource Utilization Analysis
+The dataset contains 569 tumor samples and 30 numerical features derived from digitized fine-needle aspirate images of breast masses.
 
-![Hospital Operations Dashboard](hospital-operations.png)
+The primary objective is to evaluate classification algorithms and explore how tumor characteristics contribute to malignancy prediction.
 
-> The PNG screenshots show the top portion of each dashboard. Use the live website for the interactive charts, filters, and full analysis.
+### Project Objectives
 
-## About the Project
+- Analyze tumor measurements to distinguish malignant and benign samples.
+- Compare multiple machine learning classification models.
+- Evaluate predictive performance using classification metrics.
+- Identify important tumor characteristics associated with malignancy.
+- Examine false-positive and false-negative predictions.
+- Explore how decision thresholds influence malignant-case detection.
+- Communicate findings through interactive visualizations.
 
-### Breast Cancer Diagnostic Classification
+---
 
-This analysis explores differences between **malignant and benign tumor measurements** from the Wisconsin Diagnostic Breast Cancer dataset, and compares machine-learning model predictions on held-out tumor samples.
+## Dataset Information
 
-- **569 tumor samples** in total: **212 malignant** and **357 benign**.
-- **114 held-out samples** for model evaluation, including **42 malignant** cases.
-- The **SVM** reached **98.2% test accuracy**, correctly classifying 112 of 114 held-out samples.
-- **Malignant recall: 95.2%** for SVM at the displayed default threshold (40 of 42 malignant tumors correctly identified; 2 missed).
-- **Best reported ROC-AUC: 0.996** (Logistic Regression and SVM).
-- Compares **Logistic Regression, Random Forest, SVM, and KNN** and provides performance tables, ROC curves, confusion matrices, feature distributions, and a choice of decision threshold.
-- The page describes an **80/20 stratified split** and cross-validation-based model and feature selection. The original training scripts are *not* included in this repository.
+**Dataset:** Wisconsin Diagnostic Breast Cancer (WDBC)
 
-**Interpretation:** High performance on this benchmark does not establish diagnostic readiness or clinical safety. Recall is especially relevant when considering missed malignant cases.
+**Source:** UCI Machine Learning Repository
 
-### Other Healthcare Analytics Dashboards
+| Dataset Characteristic | Value |
+|---|---|
+| Total Samples | 569 |
+| Malignant Tumors | 212 |
+| Benign Tumors | 357 |
+| Total Features | 30 |
+| Target Variable | Diagnosis (Malignant / Benign) |
+| Training/Test Split | 80% / 20% |
+| Held-Out Test Samples | 114 |
+| Malignant Samples in Test Set | 42 |
 
-| Analysis | Data covered | Dashboard-reported results |
-| --- | --- | --- |
-| Hospital Readmission Risk | 99,340 inpatient encounters involving patients with diabetes | 11.4% readmitted within 30 days; best test ROC-AUC **0.679**; Gradient Boosting recall **77.9%** at its displayed operating point |
-| Revenue Cycle & Claims | 162,178 synthetic insurance claims; 12,845-record synthetic claims audit sample | **9.0%** denial rate; **85.0%** reimbursement rate |
-| Hospital Operations | 9,216 synthetic emergency room visits | **50.0%** admission rate; **35.3-minute** average wait; **59.3%** above the default 30-minute target |
+The 30 features describe characteristics of cell nuclei, including radius, texture, perimeter, area, smoothness, compactness, concavity, concave points, symmetry, and fractal dimension.
 
-These are results reported by the supplied dashboard and embedded model outputs, not externally verified performance claims. Filters and thresholds may change displayed metrics. The 30-minute ER threshold is an analysis setting, not an established hospital service-level requirement.
+---
 
-## Features
+## Machine Learning Models
 
-- Four dashboard tabs with responsive layouts.
-- Interactive KPI cards, charts, comparison tables, filters, and drill-downs.
-- Breast cancer tumor measurement distributions, diagnostic feature comparisons, ROC curves, and confusion matrices.
-- Model comparisons and threshold selection for the breast cancer and readmission analyses.
-- Insurance claims reconciliation, denial trends, and synthetic claims audit checks.
-- ER arrival trends, departmental referrals, wait-time distributions, and an adjustable wait target.
+The dashboard compares four classification algorithms:
 
-## Technologies
+1. **Logistic Regression**
+   - A linear classification model used to estimate the probability of malignancy.
 
-- **Frontend:** HTML5, CSS3, JavaScript
-- **Charts:** D3.js and SVG
-- **Documented machine learning:** scikit-learn model outputs and evaluation methods described in the page
-- **Analytical concepts:** KPI reporting, classification performance, readmission risk, claims analytics, ER throughput
-- **Hosting:** GitHub Pages (static site)
+2. **Random Forest**
+   - An ensemble learning algorithm combining multiple decision trees.
 
-The complete dashboard uses embedded data, prepared predictions, and bundled JavaScript. It is **not** a native Power BI or Tableau workbook. Source Python notebooks, executable model-training scripts, and independent SQL assets are not part of this package; SQL/DAX examples displayed in the page are explanatory.
+3. **Support Vector Machine (SVM)**
+   - A classification algorithm that identifies a separating decision boundary between tumor classes.
 
-## Run Locally
+4. **K-Nearest Neighbors (KNN)**
+   - A distance-based classification algorithm that predicts classes using neighboring samples.
 
-1. Download `index.html` from this repository.
-2. Open it in Chrome, Edge, or Firefox.
-3. Switch among the four tabs and explore the interactive graphics.
+Model performance is evaluated using held-out predictions and reported cross-validation results.
 
-No server, software installation, database connection, or build process is needed.
+---
 
-## Publish with GitHub Pages
+## Key Results
 
-1. Upload the files in this repository **at the top level**. Do not upload the ZIP without extracting it.
-2. Go to **Settings → Pages**.
-3. Choose **Deploy from a branch**, then `main` and `/(root)`.
-4. Click **Save**. After GitHub reports a successful deployment, open the dashboard link above.
+| Performance Metric | Reported Result |
+|---|---|
+| Total Tumor Samples | 569 |
+| Best Test Accuracy | **98.2%** |
+| Best Accuracy Model | Support Vector Machine (SVM) |
+| Correctly Classified Test Samples | 112 of 114 |
+| Malignant Recall (SVM) | **95.2%** |
+| Malignant Tumors Correctly Identified | 40 of 42 |
+| Missed Malignant Cases | 2 |
+| Best Test ROC-AUC | **0.996** |
+| Models With Best Reported ROC-AUC | Logistic Regression and SVM |
 
-The `index.html` file must be in the repository root. The screenshots are also placed in the root, so README image paths like `![...](breast-cancer.png)` work without a `screenshots/` folder.
+### Key Finding
+
+The Support Vector Machine achieved **98.2% classification accuracy** on the held-out test data and identified **95.2% of malignant samples** at the default classification threshold.
+
+However, two malignant samples were incorrectly classified. This highlights the importance of evaluating recall and false-negative predictions rather than relying on accuracy alone.
+
+These findings are specific to the benchmark dataset and do not establish clinical diagnostic effectiveness.
+
+---
+
+## Dashboard Features
+
+### 1. Tumor Feature Analysis
+
+- Identifies tumor measurements that distinguish malignant and benign samples.
+- Analyzes individual features using ROC-AUC.
+- Compares distributions of malignant and benign tumor measurements.
+- Provides interactive visualizations for exploring diagnostic characteristics.
+
+### 2. Model Performance Comparison
+
+The dashboard compares:
+
+- Logistic Regression
+- Random Forest
+- Support Vector Machine
+- K-Nearest Neighbors
+
+Evaluation metrics include:
+
+- Accuracy
+- Precision
+- Recall
+- F1-Score
+- ROC-AUC
+- Cross-Validation Performance
+
+### 3. ROC Curve Analysis
+
+- Compares model discrimination performance.
+- Visualizes true-positive and false-positive rates.
+- Displays model performance across classification thresholds.
+
+### 4. Confusion Matrix Analysis
+
+- Displays true positives and true negatives.
+- Identifies false-positive predictions.
+- Highlights false-negative predictions involving missed malignant samples.
+- Supports comparison between classification models.
+
+### 5. Classification Threshold Analysis
+
+The dashboard provides two threshold settings:
+
+- Default classification threshold of 0.50.
+- A training-derived threshold targeting 97% malignant recall.
+
+Users can compare the effect of these settings on the classification of held-out tumor samples.
+
+---
+
+## Methodology
+
+### Step 1: Data Preparation
+
+The dashboard documents a machine learning workflow using 569 tumor samples with 30 numerical features.
+
+### Step 2: Train-Test Split
+
+An 80/20 stratified training and testing split was used in the documented evaluation.
+
+### Step 3: Feature Scaling
+
+StandardScaler was used in the described preprocessing pipeline to standardize numerical features.
+
+### Step 4: Feature Selection
+
+SelectKBest with an ANOVA F-test was used for feature selection.
+
+### Step 5: Model Evaluation
+
+Logistic Regression, Random Forest, SVM, and KNN were compared using classification metrics and ROC-AUC.
+
+### Step 6: Hyperparameter Optimization
+
+The documented workflow describes cross-validation-based model tuning and feature selection.
+
+### Step 7: Threshold Analysis
+
+Classification thresholds were evaluated to examine the trade-off between malignant recall and false-positive predictions.
+
+**Reproducibility Note:** The repository provides the interactive dashboard with embedded data and prepared model predictions. The original Python model-training scripts are not included.
+
+---
+
+## Technologies Used
+
+| Category | Technologies |
+|---|---|
+| Frontend Development | HTML5, CSS3, JavaScript |
+| Data Visualization | D3.js, SVG |
+| Documented Machine Learning | Logistic Regression, Random Forest, SVM, KNN |
+| Data Preparation Methods | StandardScaler, SelectKBest |
+| Model Evaluation | Accuracy, Precision, Recall, F1-Score, ROC-AUC |
+| Diagnostic Analysis | Confusion Matrix, False Negatives, False Positives |
+| Version Control | Git, GitHub |
+| Deployment | GitHub Pages |
+
+---
 
 ## Repository Structure
 
 ```text
 Breast-Cancer-Diagnostic-Classification-and-Risk-Analysis/
+│
 ├── index.html
 ├── README.md
-├── breast-cancer.png
-├── readmission.png
-├── claims.png
-└── hospital-operations.png
+└── breast-cancer.png
 ```
 
-## Data Sources & Attribution
+All files are located in the repository's root directory.
 
-- **Breast cancer:** Wisconsin Diagnostic Breast Cancer (WDBC) dataset, University of Wisconsin / UCI Machine Learning Repository; also distributed with scikit-learn.
-- **Readmissions:** UCI *Diabetes 130-US Hospitals for Years 1999–2008*, Strack and colleagues (2014), de-identified inpatient encounters.
-- **Emergency room:** `Hospital ER_Data.csv`, described by the dashboard as a synthetic 9,216-visit dataset.
-- **Claims:** Synthetic insurance claims attributed within the dashboard to `insurance-claims-dashboard` by `nourhan-ali-ml`.
-- **Claims audit:** Synthetic adjudicated claims attributed within the dashboard to `Healthcare_claim_cost_analysis1` by `shubhamdataanalytic5`.
-- **Charting:** Embedded D3.js library, with its original copyright notice retained.
+---
 
-**Check the license terms** for embedded datasets and third-party code before publicly distributing this repository. Public accessibility does not automatically grant redistribution permission, and patient-identifiable data must not be published.
+## How to Run the Project
 
-## Limitations
+1. Download the repository files.
+2. Locate the `index.html` file.
+3. Open `index.html` in Google Chrome, Microsoft Edge, or Firefox.
+4. Explore the interactive breast cancer diagnostic dashboard.
+5. Compare the machine learning models, tumor characteristics, and evaluation metrics.
 
-- Educational demonstration only; **not a medical diagnosis or treatment tool**.
-- Model metrics are dataset- and evaluation-specific; original training scripts are not included and cannot be independently rerun from this repository.
-- This project provides a standalone interactive web dashboard, not native Power BI or Tableau files.
-- Some datasets are synthetic, and reported values may change as filters and model decision thresholds change.
+No additional software installation, database connection, or build process is required.
+
+---
+
+## GitHub Pages Deployment
+
+To publish the dashboard online:
+
+1. Open the repository on GitHub.
+2. Navigate to **Settings → Pages**.
+3. Under **Build and deployment**, select **Deploy from a branch**.
+4. Select the `main` branch.
+5. Choose the `/(root)` folder.
+6. Click **Save**.
+7. After successful deployment, open the live dashboard link above.
+
+---
+
+## Data Source & Attribution
+
+**Wisconsin Diagnostic Breast Cancer Dataset**
+
+- Repository: UCI Machine Learning Repository
+- Dataset: Breast Cancer Wisconsin (Diagnostic)
+- Samples: 569
+- Features: 30 numerical measurements
+- Classification Labels: Malignant and Benign
+
+**Dataset Link:**
+
+https://archive.ics.uci.edu/dataset/17/breast+cancer+wisconsin+diagnostic
+
+The dashboard uses the D3.js visualization library. Third-party dataset and software licensing terms should be reviewed before redistribution.
+
+---
+
+## Project Limitations
+
+- This project is intended for educational and portfolio demonstration purposes.
+- It is not intended for medical diagnosis or treatment decisions.
+- Reported model performance is specific to the Wisconsin Diagnostic Breast Cancer dataset.
+- The original Python model-training scripts are not included.
+- Performance on this dataset does not guarantee effectiveness in real-world clinical settings.
+- Classification thresholds influence recall, precision, and diagnostic error rates.
+- The project is implemented as an HTML/JavaScript dashboard rather than a native Power BI or Tableau workbook.
+
+---
 
 ## Portfolio Relevance
 
-Illustrates skills relevant to **Data Analyst, Business Analyst, BI Analyst, and Healthcare Data Analyst** roles through data interpretation, interactive dashboard development, classification model evaluation, and KPI reporting.
+This project demonstrates knowledge of:
+
+- Healthcare data analytics
+- Exploratory data analysis
+- Machine learning classification
+- Feature analysis and interpretation
+- Model performance evaluation
+- Diagnostic risk assessment
+- Interactive data visualization
+- Communicating analytical findings
+
+The project is relevant to **Data Analyst, Healthcare Data Analyst, Business Intelligence Analyst, and entry-level Machine Learning Analyst** roles.
